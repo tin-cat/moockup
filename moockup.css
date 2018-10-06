@@ -13,12 +13,12 @@
 }
 
 .moockup a {
-	color: #369;
+	color: rgba(0, 0, 0, 0.5);
 	text-decoration: none;
 	transition: color .5s;
 }
 
-.moockup.darkBackground a:hover {
+.moockup a:hover {
 	text-decoration: underline;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .moockup.darkBackground a {
-	color: #aef;
+	color: rgba(255, 255, 255, 0.7);
 }
 
 .moockup > .message {
@@ -85,6 +85,17 @@
 .moockup > .header > .menu > .item.selected,
 .moockup > .header > .menu > .item:hover {
 	border-bottom: solid #fff 1px;
+	transition: border-color .5s;
+}
+
+.moockup.darkBackground > .header > .menu > .item.selected,
+.moockup.darkBackground > .header > .menu > .item:hover {
+	border-color: #fff;
+}
+
+.moockup.lightBackground > .header > .menu > .item.selected,
+.moockup.lightBackground > .header > .menu > .item:hover {
+	border-color: #000;
 }
 
 .moockup > .footer {
@@ -172,6 +183,11 @@
 
 .moockup > .screens > .screen > .mockup.image > .container > img {
 	width: 100%;
+}
+
+.moockup > .screens > .screen > .mockup > .title {
+	text-align: center;
+	margin-top: .5em;
 }
 
 .moockup > .message,

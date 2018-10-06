@@ -210,6 +210,10 @@
 				}
 			}
 
+			if (mockup.title) {
+				$('<div></div>').addClass('title').appendTo(mockupElement).html(mockup.title);
+			}
+
 			if (mockup.image) {
 				$(mockupElement).addClass('image');
 				$('<img>', {src: mockup.image}).addClass('frame').appendTo(containerElement);

@@ -6,31 +6,55 @@
     "screens": [
         {
             "title": "Home",
-            "backgroundColor": "#df003b",
+            "backgroundColor": "#c33c80",
             "mockups": [
                 {
                     "type": "MacDesktop",
                     "image": "images/Desktop - Home.png"
-                },
-                {
-                    "type": "iPhoneXPortrait",
-                    "image": "images/Mobile - Home.png",
-                    "notchBackgroundColor": "#fff"
                 }
             ]
         },
         {
-            "title": "About us",
-            "backgroundColor": "#fc0",
+            "title": "Project",
+            "backgroundColor": "#c5e057",
             "mockups": [
                 {
                     "type": "MacDesktop",
                     "image": "images/Desktop - Project.png"
+                }
+            ]
+        },
+        {
+            "title": "Humans",
+            "backgroundColor": "#08b8ec",
+            "mockups": [
+                {
+                    "type": "MacDesktop",
+                    "image": "images/Desktop - Humans.png"
+                }
+            ]
+        },
+        {
+            "title": "Mobile mockups",
+            "backgroundColor": "#08b8ec",
+            "mockups": [
+                {
+                    "type": "iPhoneXPortrait",
+                    "image": "images/Mobile - Home.png",
+                    "notchBackgroundColor": "#fff",
+                    "title": "Home"
                 },
                 {
                     "type": "iPhoneXPortrait",
                     "image": "images/Mobile - Project.png",
-                    "notchBackgroundColor": "#fff"
+                    "notchBackgroundColor": "#fff",
+                    "title": "Project"
+                },
+                {
+                    "type": "iPhoneXPortrait",
+                    "image": "images/Mobile - Humans.png",
+                    "notchBackgroundColor": "#fff",
+                    "title": "Humans"
                 }
             ]
         }
