@@ -49,7 +49,7 @@
 		"title" => "Moockup",
 		"header" => "Moockup",
 		"headerSubtitle" => "with <div class=\"love\"></div> by <a href=\"http://tin.cat\">tin.cat</a> · download on <a href=\"https://github.com/tin-cat/jquery-mockup\">Github</a> · see <a href=\"#examples\">examples</a>",
-		"headerSubSubtitle" => "An web tool by Tin.cat to present your drafts, designs or mockups to your client in a professional way while being in control of the way it's presented, and keeping the value and \"wow\" effect your work deserves.",
+		"headerSubSubtitle" => "A web tool by Tin.cat to present your drafts, designs or mockups to your client in a professional way while being in control of the way it's presented, and keeping the value and \"wow\" effect your work deserves.",
 		"footer" => "with <div class=\"love\"></div> by <a href=\"http://tin.cat\">tin.cat</a>",
 		"mosaic" => $mosaic,
 		"content" => $content

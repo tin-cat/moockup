@@ -1,0 +1,27 @@
+{
+    "pageTitle": "Moockup demo",
+    "header": "Moockup demo",
+    "footer": "Download <a href=\"https://moockup.tin.cat\">Moockup</a>",
+    "backgroundColor": "#fff",
+    "screens": [
+        {
+            "title": "Home",
+            "backgroundColor": "#df003b",
+            "mockups": [
+                {
+                    "type": "MacDesktop",
+                    "image": "images/Desktop - Home.png"
+                }
+            ]
+        },
+        {
+            "title": "Project",
+            "mockups": [
+                {
+                    "type": "MacDesktop",
+                    "image": "images/Desktop - Project.png"
+                }
+            ]
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <head>
 	<title><?= $title ? $title : "Moockup" ?></title>
-	<meta name="description" content="<?= $description ? $description : "An web tool by Tin.cat to present your drafts, designs or mockups to your client in a professional way while being in control of the way it's presented, and keeping the value and \"wow\" effect your work deserves." ?>" />
+	<meta name="description" content="<?= $description ? $description : "A web tool by Tin.cat to present your drafts, designs or mockups to your client in a professional way while being in control of the way it's presented, and keeping the value and \"wow\" effect your work deserves." ?>" />
 	<meta name="keywords" content="<?= $keywords ? $keywords : "mockup,draft,web,wireframe,client,present,presenter,tool,javascript" ?>" />
 	<meta name="distribution" CONTENT="global" />
 	<link rel="canonical" href="https://moockup.tin.cat" />
