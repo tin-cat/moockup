@@ -14,7 +14,7 @@
 
 		base.$el.data('Moockup', base);
 
-		var header, footer, screens;
+		var header, headerMenu, footer, screens;
 
 		base.init = function() {
 			// Priority of parameters : JS options > HTML data options > DEFAULT options
@@ -61,17 +61,35 @@
 
 			base.reset();
 
-			if (data.header) {
+			if (data.headerTitle || data.screens.length > 1) {
 				$(base.el).addClass('withHeader');
-				header = $('<div></div>').addClass('header').appendTo(base.el).html(data.header);
+				header = $('<div></div>').addClass('header').appendTo(base.el);
+				
+				if (data.headerTitle)
+					$('<div></div>')
+						.addClass('title')
+						.appendTo(header)
+						.html(data.headerTitle);
+
+				headerMenu =
+					$('<div></div>')
+						.addClass('menu')
+						.appendTo(header);
 			}
 
 			if (data.footer) {
 				$(base.el).addClass('withFooter');
-				footer = $('<div></div>').addClass('footer').appendTo(base.el).html(data.footer);
+				footer =
+					$('<div></div>')
+						.addClass('footer')
+						.appendTo(base.el)
+						.html(data.footer);
 			}
 
-			screens = $('<div></div>').addClass('screens').appendTo(base.el);
+			screens =
+				$('<div></div>')
+					.addClass('screens')
+					.appendTo(base.el);
 
 			if (data.pageTitle)
 				document.title = data.pageTitle;
@@ -84,6 +102,20 @@
 			base.addScreens(data.screens);
 
 			base.showScreen(0);
+		}
+
+		base.addHeaderMenuItem = function(id, title, onClick) {
+			$('<div></div>')
+				.addClass('item')
+				.addClass('id' + id)
+				.appendTo(headerMenu)
+				.html(title)
+				.on('click', onClick);
+		}
+
+		base.setHeaderMenuSelectedItem = function(id) {
+			$('> .item', headerMenu).removeClass('selected');
+			$('> .item.id' + id, headerMenu).addClass('selected');
 		}
 
 		base.message = function(type, text) {
@@ -119,6 +151,10 @@
 			$(screen.mockups).each(function (mockupIdx, mockup) {
 				base.addMockup(screenIdx, mockup);				
 			});
+
+			base.addHeaderMenuItem(screenIdx, screen.title, function() {
+				base.showScreen(screenIdx);
+			});
 		}
 
 		base.addMockup = function(screenIdx, mockup) {
@@ -131,11 +167,48 @@
 
 			var mockupType = base.getType(mockup.type);
 
-			var mockupElement = $('<div></div>', {id: 'mockup' + $(screen).attr('id') + '_' + screenIdx}).addClass('mockup').addClass(mockup.type).appendTo(screen);
+			var mockupElement =
+				$('<div></div>', {id: 'mockup' + $(screen).attr('id') + '_' + screenIdx})
+					.addClass('mockup')
+					.addClass(mockup.type)
+					.appendTo(screen);
 			
-			var containerElement = $('<div></div>').addClass('container').appendTo(mockupElement);
-			var frameElement = $('<img>', {src: mockupType.frameSrc}).addClass('frame').addClass(mockupType.orientation).appendTo(mockupElement);
-			// var containerElement = $('<div></div>').addClass('frame').css('background-image', 'url(' + base.getType(mockup.type).frameSrc + ')').appendTo(mockupElement);
+			var containerElement =
+				$('<div></div>')
+					.addClass('container')
+					.appendTo(mockupElement);
+			
+			if (mockupType.containerPosition)
+				$(containerElement)
+					.css('top', mockupType.containerPosition.top + '%')
+					.css('bottom', mockupType.containerPosition.bottom + '%')
+					.css('left', mockupType.containerPosition.left + '%')
+					.css('right', mockupType.containerPosition.right + '%');
+
+			var frameElement =
+				$('<img>', {src: mockupType.frameSrc})
+					.addClass('frame')
+					.addClass(mockupType.orientation)
+					.appendTo(mockupElement);
+			
+			if (mockup.maxHeightVMin)
+				$(mockupElement).css('max-height', mockup.maxHeightVMin + 'vmin');
+			else if (mockupType.maxHeightVMin)
+				$(mockupElement).css('max-height', mockupType.maxHeightVMin + 'vmin');
+
+			if (mockup.notchBackgroundColor && mockupType.notch) {
+				if (mockupType.notch.top) {
+					$(containerElement)
+						.css('padding-top', mockupType.notch.top.height + '%')
+						.css('background-color', mockup.notchBackgroundColor);
+				}
+				else
+				if (mockupType.notch.bottom) {
+					$(containerElement)
+						.css('padding-bottom', mockupType.notch.bottom.height + '%')
+						.css('background-color', mockup.notchBackgroundColor);
+				}
+			}
 
 			if (mockup.image) {
 				$(mockupElement).addClass('image');
@@ -162,6 +235,17 @@
 		base.showScreen = function(screenIdx) {
 			var screen = base.getScreen(screenIdx);
 			base.setLightOrDarkBackgroundClass(screen, base.el);
+			var screenTopPosition = base.getScreen(screenIdx).offset().top + $(screens).scrollTop();
+			$(screens)
+				.stop()
+				.animate(
+					{
+						scrollTop: screenTopPosition
+					},
+					500,
+					'swing'
+				);
+			base.setHeaderMenuSelectedItem(screenIdx);
 		}
 
 		// Function by https://codepen.io/andreaswik
@@ -205,11 +289,30 @@
 		types: {
 			'MacDesktop': {
 				'frameSrc': 'res/frames/imac_glare.png',
-				'orientation': 'landscape'
+				'orientation': 'landscape',
+				'maxHeightVMin': 100,
+				'containerPosition': {
+					"left": 4.2,
+					"top": 5.2,
+					"right": 4.2,
+					"bottom": 30.15
+				}
 			},
 			'iPhoneXPortrait': {
 				'frameSrc': 'res/frames/iphone_x_portrait.png',
-				'orientation': 'portrait'
+				'orientation': 'portrait',
+				'maxHeightVMin': 50,
+				'containerPosition': {
+					"left": 6.5,
+					"top": 2.9,
+					"right": 6.5,
+					"bottom": 3
+				},
+				'notch': {
+					'top': {
+						'height': 7
+					}
+				}
 			}
 		},
 		isCacheJson: false

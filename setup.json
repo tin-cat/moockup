@@ -1,6 +1,6 @@
 {
     "pageTitle": "Moockup demo",
-    "header": "Moockup demo",
+    "headerTitle": "Moockup demo",
     "footer": "Download <a href=\"https://moockup.tin.cat\">Moockup</a>",
     "backgroundColor": "#fff",
     "screens": [
@@ -14,28 +14,23 @@
                 },
                 {
                     "type": "iPhoneXPortrait",
-                    "image": "images/Mobile - Home.png"
-                },
-                {
-                    "type": "MacDesktop",
-                    "image": "images/Desktop - Home.png"
-                },
-                {
-                    "type": "MacDesktop",
-                    "image": "images/Desktop - Home.png"
-                },
-                {
-                    "type": "iPhoneXPortrait",
-                    "image": "images/Mobile - Home.png"
+                    "image": "images/Mobile - Home.png",
+                    "notchBackgroundColor": "#fff"
                 }
             ]
         },
         {
-            "title": "Project",
+            "title": "About us",
+            "backgroundColor": "#fc0",
             "mockups": [
                 {
                     "type": "MacDesktop",
                     "image": "images/Desktop - Project.png"
+                },
+                {
+                    "type": "iPhoneXPortrait",
+                    "image": "images/Mobile - Project.png",
+                    "notchBackgroundColor": "#fff"
                 }
             ]
         }

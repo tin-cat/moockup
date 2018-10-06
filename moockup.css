@@ -9,11 +9,13 @@
 	font-size: 11pt;
 	background: #fff;
 	color: #000;
+	transition: color .5s;
 }
 
-.moockup.darkBackground a {
+.moockup a {
 	color: #369;
 	text-decoration: none;
+	transition: color .5s;
 }
 
 .moockup.darkBackground a:hover {
@@ -52,20 +54,47 @@
 
 .moockup > .header {
 	position: absolute;
-	top: 1em;
+	top: 0;
 	left: 0;
 	right: 0;
 	text-align: center;
 	z-index: 1;
+
+	display: flex;
+	justify-content: center;
+}
+
+.moockup > .header > div {
+	padding: 1em;
+}
+
+.moockup > .header > .title {
+	font-weight: bold;
+}
+
+.moockup > .header > .menu {
+	display: flex;
+	padding: 0;
+}
+
+.moockup > .header > .menu > .item {
+	cursor: pointer;
+	padding: 1em;
+}
+
+.moockup > .header > .menu > .item.selected,
+.moockup > .header > .menu > .item:hover {
+	border-bottom: solid #fff 1px;
 }
 
 .moockup > .footer {
 	position: absolute;
-	bottom: 1em;
+	bottom: 0;
 	left: 0;
 	right: 0;
 	text-align: center;
 	z-index: 1;
+	padding: 1em;
 }
 
 .moockup > .screens {
@@ -85,7 +114,6 @@
 	justify-content: center;
 	align-items: center;
 	align-content: center;
-
 	width: 100%;
 	height: 100%;
 	padding: 0 10%;
@@ -112,9 +140,7 @@
 
 .moockup > .screens > .screen > .mockup {
 	position: relative;
-	max-width: 100%;
-	max-height: 100%;
-	margin-right: 8%;
+	margin-right: 5%;
 }
 
 .moockup > .screens > .screen > .mockup:last-child {
@@ -148,18 +174,13 @@
 	width: 100%;
 }
 
-.moockup > .screens > .screen > .mockup.MacDesktop > .container {
-	left: 4.2%;
-	top: 5.2%;
-	right: 4.2%;
-	bottom: 30.15%;
-	border-radius: 2px;
-}
-
-.moockup > .screens > .screen > .mockup.iPhoneXPortrait > .container {
-	left: 6.5%;
-	top: 3%;
-	right: 6.5%;
-	bottom: 3%;
-	border-radius: 2px;
+.moockup > .message,
+.moockup > .header,
+.moockup > .screens {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
