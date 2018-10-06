@@ -6,7 +6,7 @@
     "screens": [
         {
             "title": "Home",
-            "backgroundColor": "#c33c80",
+            "backgroundColor": "#E01A4F",
             "mockups": [
                 {
                     "type": "MacDesktop",
@@ -16,7 +16,7 @@
         },
         {
             "title": "Project",
-            "backgroundColor": "#c5e057",
+            "backgroundColor": "#F15946",
             "mockups": [
                 {
                     "type": "MacDesktop",
@@ -26,7 +26,7 @@
         },
         {
             "title": "Humans",
-            "backgroundColor": "#08b8ec",
+            "backgroundColor": "#F9C22E",
             "mockups": [
                 {
                     "type": "MacDesktop",
@@ -36,7 +36,7 @@
         },
         {
             "title": "Mobile mockups",
-            "backgroundColor": "#08b8ec",
+            "backgroundColor": "#53B3CB",
             "mockups": [
                 {
                     "type": "iPhoneXPortrait",

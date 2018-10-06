@@ -292,18 +292,18 @@
 		setupFileName: 'setup.json', // The setup file name
 		types: {
 			'MacDesktop': {
-				'frameSrc': 'res/frames/imac_glare.png',
+				'frameSrc': 'res/frames/imac.svg',
 				'orientation': 'landscape',
 				'maxHeightVMin': 100,
 				'containerPosition': {
 					"left": 4.2,
-					"top": 5.2,
+					"top": 4.1,
 					"right": 4.2,
-					"bottom": 30.15
+					"bottom": 33
 				}
 			},
 			'iPhoneXPortrait': {
-				'frameSrc': 'res/frames/iphone_x_portrait.png',
+				'frameSrc': 'res/frames/iphone_x.svg',
 				'orientation': 'portrait',
 				'maxHeightVMin': 50,
 				'containerPosition': {
