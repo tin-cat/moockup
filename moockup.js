@@ -100,8 +100,8 @@
 			});
 		}
 
-		base.addScreen = function(idx, screen) {
-			var screenElement = $('<div></div>', {id: 'screen' + idx}).addClass('screen').appendTo(screens);
+		base.addScreen = function(screenIdx, screen) {
+			var screenElement = $('<div></div>', {id: 'screen' + screenIdx}).addClass('screen').appendTo(screens);
 			
 			if (screen.backgroundColor) {
 				$(screenElement).css('background-color', screen.backgroundColor);
@@ -111,12 +111,13 @@
 				base.setLightOrDarkBackgroundClass(base.el, screenElement);
 			
 			if (!screen.mockups) {
-				base.error('No mockups on screen ' + (idx + 1));
+				base.error('No mockups on screen ' + (screenIdx + 1));
 				return;
 			}
 
+			// Add mockups
 			$(screen.mockups).each(function (mockupIdx, mockup) {
-				base.addMockup(idx, mockup);				
+				base.addMockup(screenIdx, mockup);				
 			});
 		}
 
@@ -136,9 +137,6 @@
 			var frameElement = $('<img>', {src: mockupType.frameSrc}).addClass('frame').addClass(mockupType.orientation).appendTo(mockupElement);
 			// var containerElement = $('<div></div>').addClass('frame').css('background-image', 'url(' + base.getType(mockup.type).frameSrc + ')').appendTo(mockupElement);
 
-			if (mockupType.flexGrow)
-				$(mockupElement).css('flex-grow', mockupType.flexGrow);
-
 			if (mockup.image) {
 				$(mockupElement).addClass('image');
 				$('<img>', {src: mockup.image}).addClass('frame').appendTo(containerElement);
@@ -150,11 +148,15 @@
 		}
 
 		base.getScreen = function(screenIdx) {
-			return document.getElementById('screen' + screenIdx);
+			return $('#screen' + screenIdx);
 		}
 
 		base.getMockup = function(screenIdx, mockupIdx) {
-			return document.getElementById('mockup' + screenIdx + '_' + mockupIdx);
+			return $('#mockup' + screenIdx + '_' + mockupIdx);
+		}
+
+		base.getMockups = function(screenIdx) {
+			return $('> .mockup', base.getScreen(screenIdx));
 		}
 
 		base.showScreen = function(screenIdx) {

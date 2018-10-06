@@ -15,6 +15,18 @@
                 {
                     "type": "iPhoneXPortrait",
                     "image": "images/Mobile - Home.png"
+                },
+                {
+                    "type": "MacDesktop",
+                    "image": "images/Desktop - Home.png"
+                },
+                {
+                    "type": "MacDesktop",
+                    "image": "images/Desktop - Home.png"
+                },
+                {
+                    "type": "iPhoneXPortrait",
+                    "image": "images/Mobile - Home.png"
                 }
             ]
         },

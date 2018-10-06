@@ -23,4 +23,4 @@ cleancss -o moockup.min.css moockup.css
 Moockup is released under the MIT License, meaning you can do with it whatever you want, even for commercial and obscure purposes. A credit somewhere would be appreciated, though!
 
 ### Please
-Please don't use Moockup to show photos of animal abuse. Seriously.
+Please don't use Moockup if you're an animal abuser.

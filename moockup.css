@@ -11,6 +11,15 @@
 	color: #000;
 }
 
+.moockup.darkBackground a {
+	color: #369;
+	text-decoration: none;
+}
+
+.moockup.darkBackground a:hover {
+	text-decoration: underline;
+}
+
 .moockup.fullScreen {
 	position: fixed;
 	top: 0;
@@ -19,12 +28,12 @@
 	right: 0;
 }
 
-.moockup.lightBackground {
-	color: #000;
-}
-
 .moockup.darkBackground {
 	color: #fff;
+}
+
+.moockup.darkBackground a {
+	color: #aef;
 }
 
 .moockup > .message {
@@ -132,6 +141,7 @@
 	position: absolute;
 	overflow-y: scroll;
 	z-index: 0;
+	background: #000;
 }
 
 .moockup > .screens > .screen > .mockup.image > .container > img {
