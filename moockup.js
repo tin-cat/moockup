@@ -36,10 +36,16 @@
 		}
 
 		base.loadSetup = function(fileName) {
-			$.getJSON(fileName, function(data) {
-				base.setSetup(data);
-			}).fail(function() {
-				base.error('Setup file \'' + fileName + '\' contains errors or wasn\'t found');
+			$.ajax({
+				cache: o.isCacheJson,
+				url: fileName,
+				dataType: "json",
+				success: function(data) {
+					base.setSetup(data);
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					base.error('Error loading setup file \'' + fileName + '\' (' + textStatus + ': ' + errorThrown + ')');
+				}
 			});
 		}
 
@@ -122,11 +128,16 @@
 				return;
 			}
 
+			var mockupType = base.getType(mockup.type);
+
 			var mockupElement = $('<div></div>', {id: 'mockup' + $(screen).attr('id') + '_' + screenIdx}).addClass('mockup').addClass(mockup.type).appendTo(screen);
 			
 			var containerElement = $('<div></div>').addClass('container').appendTo(mockupElement);
-			var frameElement = $('<img>', {src: base.getType(mockup.type).frameSrc}).addClass('frame').appendTo(mockupElement);
+			var frameElement = $('<img>', {src: mockupType.frameSrc}).addClass('frame').addClass(mockupType.orientation).appendTo(mockupElement);
 			// var containerElement = $('<div></div>').addClass('frame').css('background-image', 'url(' + base.getType(mockup.type).frameSrc + ')').appendTo(mockupElement);
+
+			if (mockupType.flexGrow)
+				$(mockupElement).css('flex-grow', mockupType.flexGrow);
 
 			if (mockup.image) {
 				$(mockupElement).addClass('image');
@@ -191,9 +202,15 @@
 		setupFileName: 'setup.json', // The setup file name
 		types: {
 			'MacDesktop': {
-				'frameSrc': 'res/frames/imac_glare.png'
+				'frameSrc': 'res/frames/imac_glare.png',
+				'orientation': 'landscape'
+			},
+			'iPhoneXPortrait': {
+				'frameSrc': 'res/frames/iphone_x_portrait.png',
+				'orientation': 'portrait'
 			}
-		}
+		},
+		isCacheJson: false
 	};
 
 	$.fn.Moockup = function(options, params) {
