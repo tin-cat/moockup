@@ -1,7 +1,7 @@
 {
     "pageTitle": "Moockup demo",
     "headerTitle": "Moockup demo",
-    "footer": "Download <a href=\"https://moockup.tin.cat\">Moockup</a>",
+    "footer": "Read <a href=\"https://moockup.tin.cat\" target=\"externalLinks\">Moockup documentation</a> to customize this Moockup",
     "backgroundColor": "#fff",
     "screens": [
         {
