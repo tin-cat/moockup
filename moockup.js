@@ -222,7 +222,7 @@
 				$('<img>', {src: mockup.image}).addClass('frame').appendTo(containerElement);
 			}
 
-			$('<img>', {src: mockupType.frameSrc})
+			$('<img>', {src: o.resBaseDir + mockupType.frameSrc})
 				.addClass('frame')
 				.appendTo(mockupElement);
 		}
@@ -350,10 +350,11 @@
 		isFullScreen: true, // If set to true, the Moockup will take the entire available screen. If left to false, the Moockup will take the size of the div it's been created.
 		setup: false, // If specified, this setup options will be used instead of reading the setup file. A JSON object must be passed, just like in the file setup.json.
 		setupFileName: 'setup.json', // The setup file name to read if no setup option is specified.
+		resBaseDir: 'res/', // The base directory where Moockup's own resources are located. Change it if you're calling Moockup from a directory different than its own.
 		gapPercentage: 5, // The gap in between mockups on the same screen, expressed as a percentage relative to the screen's width.
 		types: {
 			'MacDesktop': {
-				'frameSrc': 'res/frames/imac.svg',
+				'frameSrc': 'frames/imac.svg',
 				'width': 4901,
 				'height': 3980.6,
 				'containerPosition': {
@@ -364,7 +365,7 @@
 				}
 			},
 			'iPhoneXPortrait': {
-				'frameSrc': 'res/frames/iphone_x.svg',
+				'frameSrc': 'frames/iphone_x.svg',
 				'width': 2328.8,
 				'height': 4651.9,
 				'containerPosition': {
@@ -380,7 +381,7 @@
 				}
 			},
 			'Tablet': {
-				'frameSrc': 'res/frames/tablet.svg',
+				'frameSrc': 'frames/tablet.svg',
 				'width': 2617,
 				'height': 3605.81,
 				'containerPosition': {
@@ -391,7 +392,7 @@
 				}
 			},
 			'MacBook': {
-				'frameSrc': 'res/frames/macbook.svg',
+				'frameSrc': 'frames/macbook.svg',
 				'width': 2429.5,
 				'height': 1438.5,
 				'containerPosition': {
