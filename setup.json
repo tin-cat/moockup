@@ -25,17 +25,7 @@
             ]
         },
         {
-            "title": "Humans",
-            "backgroundColor": "#F9C22E",
-            "mockups": [
-                {
-                    "type": "MacDesktop",
-                    "image": "images/Desktop - Humans.png"
-                }
-            ]
-        },
-        {
-            "title": "Mobile mockups",
+            "title": "Mobile",
             "backgroundColor": "#53B3CB",
             "mockups": [
                 {
@@ -55,6 +45,20 @@
                     "image": "images/Mobile - Humans.png",
                     "notchBackgroundColor": "#fff",
                     "title": "Humans"
+                }
+            ]
+        },
+        {
+            "title": "More",
+            "backgroundColor": "#F9C22E",
+            "mockups": [
+                {
+                    "type": "Tablet",
+                    "image": "images/Desktop - Humans.png"
+                },
+                {
+                    "type": "MacBook",
+                    "image": "images/Desktop - Humans.png"
                 }
             ]
         }

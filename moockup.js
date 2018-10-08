@@ -262,7 +262,6 @@
 
 				// Center vertically by adding a margin-top
 				marginTop = (screenHeight / 2) - (height / 2);
-				console.log(marginTop);
 				
 				$(mockup)
 					.css('width', width)
@@ -356,12 +355,12 @@
 			'MacDesktop': {
 				'frameSrc': 'res/frames/imac.svg',
 				'width': 4901,
-				'height': 3897.6,
+				'height': 3980.6,
 				'containerPosition': {
 					"left": 4.2,
-					"top": 4.1,
+					"top": 4.2,
 					"right": 4.2,
-					"bottom": 33
+					"bottom": 34.5
 				}
 			},
 			'iPhoneXPortrait': {
@@ -378,6 +377,28 @@
 					'top': {
 						'height': 7
 					}
+				}
+			},
+			'Tablet': {
+				'frameSrc': 'res/frames/tablet.svg',
+				'width': 2617,
+				'height': 3605.81,
+				'containerPosition': {
+					"left": 3.5,
+					"top": 6.6,
+					"right": 3.5,
+					"bottom": 8.6
+				}
+			},
+			'MacBook': {
+				'frameSrc': 'res/frames/macbook.svg',
+				'width': 2429.5,
+				'height': 1438.5,
+				'containerPosition': {
+					"left": 11.3,
+					"top": 5.4,
+					"right": 11.3,
+					"bottom": 13.3
 				}
 			}
 		},

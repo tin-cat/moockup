@@ -8,7 +8,7 @@
 			<a name=\"basicUsage\"></a>
 			<h1>Key features</h1>
 			<ul class=\"fancy\">
-				<li>Keep control of the way your drafts and mockups will be shown to your client.</li>
+				<li>Keep control of the way your client sees your drafts and mockups.</li>
 				<li>Choose between desktop/laptop, Mac/PC, iPhone/Android and tablet themes for your mockup.</li>
 				<li>Upload your presentation to your web server and share the URL for easy access.</li>
 			</ul>
