@@ -25,7 +25,7 @@
 			if (o.isFullScreen)
 				$(base.el).addClass('fullScreen');
 
-			if (o.screens)
+			if (o.setup)
 				base.setSetup(o.setup);
 			else
 				base.loadSetup(o.setupFileName);
