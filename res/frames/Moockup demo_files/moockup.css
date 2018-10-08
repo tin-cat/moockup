@@ -119,21 +119,27 @@
 }
 
 .moockup > .screens > .screen {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
 	width: 100%;
 	height: 100%;
+	padding: 0 10%;
 	box-sizing: border-box;
 	background: #fff;
 	color: #000;
-	text-align: center;
-	padding: 3%;
+	overflow: hidden;
 }
 
 .moockup.withHeader > .screens > .screen {
-	padding-top: calc(3% + 3.5em);
+	padding-top: 3.5em;
 }
 
 .moockup.withFooter > .screens > .screen {
-	padding-bottom: calc(3% + 3.5em);
+	padding-bottom: 3.5em;
 }
 
 .moockup > .screens > .screen.lightBackground {
@@ -146,20 +152,23 @@
 
 .moockup > .screens > .screen > .mockup {
 	position: relative;
-	display: none;
-	vertical-align: top;
+	margin-right: 5%;
+	overflow: hidden;
+	height: 100%; /* Needed for compatibility with Firefox */
+	outline: solid purple 1px;
 }
 
 .moockup > .screens > .screen > .mockup:last-child {
-	margin-right: 0 !important;
+	margin-right: 0;
 }
 
 .moockup > .screens > .screen > .mockup > img.frame {
-	width: 100%;
-	
-	opacity: .99;
 	z-index: 1;
 	pointer-events: none;
+	opacity: .99; /* trick to force the image to be on top of the content, for screen glare effects */
+	max-width: 100%;
+	max-height: 100%;
+	border: solid yellow 1px;
 }
 
 .moockup > .screens > .screen > .mockup > .container {
@@ -174,11 +183,8 @@
 }
 
 .moockup > .screens > .screen > .mockup > .title {
-	position: absolute;
-	top: calc(100% + .5em);
-	left: 0;
-	right: 0;
 	text-align: center;
+	margin-top: .5em;
 }
 
 .moockup > .message,

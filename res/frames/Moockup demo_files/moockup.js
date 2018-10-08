@@ -16,6 +16,8 @@
 
 		var header, headerMenu, footer, screens;
 
+		var currentScreen;
+
 		base.init = function() {
 			// Priority of parameters : JS options > HTML data options > DEFAULT options
 			base.options = o = $.extend({}, $.Moockup.defaults, base.$el.data(), options);
@@ -28,11 +30,10 @@
 			if (o.screens)
 				base.setSetup(o.setup);
 			else
-				base.loadSetup(o.setupFileName);
+				base.loadSetup(o.setupFileName);	
 
-			$(window).resize(function() {
-				base.fitAllMockups();
-				base.showScreen(currentScreenIdx, false);
+			$(window).on('resize', null, null, function() {
+				base.reflow();
 			});
 		}
 
@@ -135,7 +136,6 @@
 			$(screens).each(function (idx, screen) {
 				base.addScreen(idx, screen);
 			});
-			base.fitAllMockups();
 		}
 
 		base.addScreen = function(screenIdx, screen) {
@@ -153,19 +153,18 @@
 				return;
 			}
 
-			// Add menu item
-			base.addHeaderMenuItem(screenIdx, screen.title, function() {
-				base.showScreen(screenIdx, true);
-			});
-
 			// Add mockups
 			$(screen.mockups).each(function (mockupIdx, mockup) {
-				base.addMockup(screenIdx, mockup);
+				base.addMockup(screenIdx, mockup);				
+			});
+
+			base.addHeaderMenuItem(screenIdx, screen.title, function() {
+				base.showScreen(screenIdx, true);
 			});
 		}
 
 		base.addMockup = function(screenIdx, mockup) {
-			var screenElement = base.getScreen(screenIdx);
+			var screen = base.getScreen(screenIdx);
 
 			if (!base.getType(mockup.type)) {
 				base.error('Wrong type "' + mockup.type + '"');
@@ -175,109 +174,60 @@
 			var mockupType = base.getType(mockup.type);
 
 			var mockupElement =
-				$('<div></div>', {id: 'mockup' + $(screenElement).attr('id') + '_' + screenIdx})
+				$('<div></div>', {id: 'mockup' + $(screen).attr('id') + '_' + screenIdx})
 					.addClass('mockup')
 					.addClass(mockup.type)
-					.data('type', mockup.type)
-					.css('margin-right', o.gapPercentage + '%')
-					.appendTo(screenElement);
+					.appendTo(screen);
 			
-			var containerElement =
-				$('<div></div>')
-					.addClass('container')
-					.appendTo(mockupElement);
-			
-			if (mockupType.containerPosition)
-				$(containerElement)
-					.css('top', mockupType.containerPosition.top + '%')
-					.css('bottom', mockupType.containerPosition.bottom + '%')
-					.css('left', mockupType.containerPosition.left + '%')
-					.css('right', mockupType.containerPosition.right + '%');
-			
-			if (mockup.maxHeightVMin)
-				$(mockupElement).css('max-height', mockup.maxHeightVMin + 'vmin');
-			else if (mockupType.maxHeightVMin)
-				$(mockupElement).css('max-height', mockupType.maxHeightVMin + 'vmin');
-
-			if (mockup.notchBackgroundColor && mockupType.notch) {
-				if (mockupType.notch.top) {
-					$(containerElement)
-						.css('padding-top', mockupType.notch.top.height + '%')
-						.css('background-color', mockup.notchBackgroundColor);
-				}
-				else
-				if (mockupType.notch.bottom) {
-					$(containerElement)
-						.css('padding-bottom', mockupType.notch.bottom.height + '%')
-						.css('background-color', mockup.notchBackgroundColor);
-				}
-			}
-
-			if (mockup.title) {
-				$('<div></div>').addClass('title').appendTo(mockupElement).html(mockup.title);
-			}
-
-			if (mockup.image) {
-				$(mockupElement).addClass('image');
-				$('<img>', {src: mockup.image}).addClass('frame').appendTo(containerElement);
-			}
-
 			$('<img>', {src: mockupType.frameSrc})
 				.addClass('frame')
 				.appendTo(mockupElement);
-		}
-
-		base.fitAllMockups = function() {
-			$('> .screen', screens).each(function(screenIdx, screen) {
-				base.fitMockups(screenIdx);
-			});
-		}
-
-		base.fitMockups = function(screenIdx) {
-			var screenElement = base.getScreen(screenIdx);
-			var mockups = base.getMockups(screenIdx);
-
-			var numberOfMockups = mockups.length;
-
-			var screenWidth = $(screenElement).width();
-			var screenHeight = $(screenElement).height();
 			
-			var baseMockupWidth = screenWidth / numberOfMockups;
+			// var containerElement =
+			// 	$('<div></div>')
+			// 		.addClass('container')
+			// 		.appendTo(mockupElement);
+			
+			// if (mockupType.containerPosition)
+			// 	$(containerElement)
+			// 		.css('top', mockupType.containerPosition.top + '%')
+			// 		.css('bottom', mockupType.containerPosition.bottom + '%')
+			// 		.css('left', mockupType.containerPosition.left + '%')
+			// 		.css('right', mockupType.containerPosition.right + '%');
 
-			var mockupType, aspectRatio, width, marginTop, isLastMockupInScreen;
-			$(mockups).each(function(mockupIdx, mockup) {
-				isLastMockupInScreen = mockupIdx >= numberOfMockups - 1;
+			// var frameElement =
+			// 	$('<img>', {src: mockupType.frameSrc})
+			// 		.addClass('frame')
+			// 		.addClass(mockupType.orientation)
+			// 		.appendTo(mockupElement);
+			
+			// if (mockup.maxHeightVMin)
+			// 	$(mockupElement).css('max-height', mockup.maxHeightVMin + 'vmin');
+			// else if (mockupType.maxHeightVMin)
+			// 	$(mockupElement).css('max-height', mockupType.maxHeightVMin + 'vmin');
 
-				mockupType = base.getType($(mockup).data('type'));
-				aspectRatio = mockupType.width / mockupType.height;
+			// if (mockup.notchBackgroundColor && mockupType.notch) {
+			// 	if (mockupType.notch.top) {
+			// 		$(containerElement)
+			// 			.css('padding-top', mockupType.notch.top.height + '%')
+			// 			.css('background-color', mockup.notchBackgroundColor);
+			// 	}
+			// 	else
+			// 	if (mockupType.notch.bottom) {
+			// 		$(containerElement)
+			// 			.css('padding-bottom', mockupType.notch.bottom.height + '%')
+			// 			.css('background-color', mockup.notchBackgroundColor);
+			// 	}
+			// }
 
-				// Try to fit mockup by width
-				width = baseMockupWidth - (baseMockupWidth * (o.gapPercentage * 2) / 100);
-				height = base.getAspectRatioHeightForGivenWidth(aspectRatio, width);
-				if (height >= screenHeight) {
-					// If resulting size is higher than available height, fit it by height
-					height = screenHeight;
-					width = base.getAspectRatioWidthForGivenHeight(aspectRatio, height);
-				}
+			// if (mockup.title) {
+			// 	$('<div></div>').addClass('title').appendTo(mockupElement).html(mockup.title);
+			// }
 
-				// Center vertically by adding a margin-top
-				marginTop = (screenHeight / 2) - (height / 2);
-				console.log(marginTop);
-				
-				$(mockup)
-					.css('width', width)
-					.css('height', height)
-					.css('margin-top', marginTop)
-					.css('display', 'inline-block');
-			});
-		}
-
-		base.getAspectRatioWidthForGivenHeight = function(aspectRatio, height) {
-			return height * aspectRatio;
-		}
-
-		base.getAspectRatioHeightForGivenWidth = function(aspectRatio, width) {
-			return width / aspectRatio;
+			// if (mockup.image) {
+			// 	$(mockupElement).addClass('image');
+			// 	$('<img>', {src: mockup.image}).addClass('frame').appendTo(containerElement);
+			// }
 		}
 
 		base.getType = function(type) {
@@ -285,11 +235,11 @@
 		}
 
 		base.getScreen = function(screenIdx) {
-			return $('#screen' + screenIdx, base.el);
+			return $('#screen' + screenIdx);
 		}
 
 		base.getMockup = function(screenIdx, mockupIdx) {
-			return $('#mockup' + screenIdx + '_' + mockupIdx, base.el);
+			return $('#mockup' + screenIdx + '_' + mockupIdx);
 		}
 
 		base.getMockups = function(screenIdx) {
@@ -310,7 +260,7 @@
 					'swing'
 				);
 			base.setHeaderMenuSelectedItem(screenIdx);
-			currentScreenIdx = screenIdx;
+			currentScreen = screenIdx;
 		}
 
 		// Function by https://codepen.io/andreaswik
@@ -344,6 +294,16 @@
 			$(elementToSet).addClass(base.isLightBackgroundColor(elementToTest) ? 'lightBackground' : 'darkBackground');
 		}
 
+		base.reflow = function() {
+			var scrollTop = $(screens).scrollTop();
+			$('.screen', base.el).each(function(idx, element) {
+				$('.screen', base.el).css('display', 'none');
+				$('.screen', base.el).height();
+				$('.screen', base.el).css('display', 'flex');
+			});
+			base.showScreen(currentScreen, false);
+		}
+
 		base.init();
 	}
 
@@ -351,12 +311,9 @@
 		isFullScreen: true, // Set it to true to make Moockup take the entire screen.
 		setup: false, // If specific, this setup options will be used instead of reading the setup file.
 		setupFileName: 'setup.json', // The setup file name
-		gapPercentage: 5, // Percentage relative to screen's width to leave empty in between mockups on the same screen
 		types: {
 			'MacDesktop': {
 				'frameSrc': 'res/frames/imac.svg',
-				'width': 4901,
-				'height': 3897.6,
 				'containerPosition': {
 					"left": 4.2,
 					"top": 4.1,
@@ -366,8 +323,6 @@
 			},
 			'iPhoneXPortrait': {
 				'frameSrc': 'res/frames/iphone_x.svg',
-				'width': 2328.8,
-				'height': 4651.9,
 				'containerPosition': {
 					"left": 6.5,
 					"top": 2.9,
