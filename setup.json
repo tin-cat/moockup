@@ -1,26 +1,25 @@
 {
     "pageTitle": "Moockup demo",
     "headerTitle": "Moockup demo",
-    "footer": "Read <a href=\"https://moockup.tin.cat\" target=\"externalLinks\">Moockup documentation</a> to customize this Moockup",
-    "backgroundColor": "#fff",
+    "footer": "Read the <a href=\"https://moockup.tin.cat\" target=\"external\">documentation</a> to customize this <b>Moock<sup>up</sup></b>",
     "screens": [
         {
             "title": "Home",
-            "backgroundColor": "#E01A4F",
+            "backgroundColor": "#fb0",
             "mockups": [
                 {
                     "type": "MacDesktop",
-                    "image": "images/Desktop - Home.png"
+                    "image": "images/home_desktop.jpg"
                 }
             ]
         },
         {
             "title": "Project",
-            "backgroundColor": "#F15946",
+            "backgroundColor": "#E01A4F",
             "mockups": [
                 {
                     "type": "MacDesktop",
-                    "image": "images/Desktop - Project.png"
+                    "image": "images/subsection_desktop.jpg"
                 }
             ]
         },
@@ -30,35 +29,35 @@
             "mockups": [
                 {
                     "type": "iPhoneXPortrait",
-                    "image": "images/Mobile - Home.png",
+                    "image": "images/home_mobile.jpg",
                     "notchBackgroundColor": "#fff",
                     "title": "Home"
                 },
                 {
                     "type": "iPhoneXPortrait",
-                    "image": "images/Mobile - Project.png",
+                    "image": "images/subsection_mobile.jpg",
                     "notchBackgroundColor": "#fff",
-                    "title": "Project"
+                    "title": "Sub section"
                 },
                 {
                     "type": "iPhoneXPortrait",
-                    "image": "images/Mobile - Humans.png",
-                    "notchBackgroundColor": "#fff",
-                    "title": "Humans"
+                    "image": "images/another_section_mobile.jpg",
+                    "notchBackgroundColor": "#333333",
+                    "title": "Another section"
                 }
             ]
         },
         {
             "title": "More",
-            "backgroundColor": "#F9C22E",
+            "backgroundColor": "#F15946",
             "mockups": [
                 {
                     "type": "Tablet",
-                    "image": "images/Desktop - Humans.png"
+                    "image": "images/subsection_desktop.jpg"
                 },
                 {
                     "type": "MacBook",
-                    "image": "images/Desktop - Humans.png"
+                    "image": "images/home_desktop.jpg"
                 }
             ]
         }

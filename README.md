@@ -1,7 +1,7 @@
 # Moockup
 See documentation and working examples here http://moockup.tin.cat
 
-A web tool by Tin.cat to present your drafts, designs or mockups to your client in a professional way while being in control of the way it's presented, and keeping the value and "wow" effect your work deserves.
+A web tool by Tin.cat to present drafts, designs or mockups to your client professionally while keeping control of the way it's presented, bringing back the "wow" effect your work deserves.
 
 Presenting your website or app designs to your client in a proper way is difficult: PDFs are too incontrollable, and simply sending PNG or JPG files doesn't really looks professional. Also, you're not in control of things like the default zoom level when your PDF is opened, the scroll position where it starts, the automatic resizing of the content to the client's screen ... All this makes you lose the initial "wow" effect and ultimately diminishes the value of your work. Moockup is a method to present your drafts, designs or mockups to your client in an elegant and professional way, making sure the client will see your work as you intended to.
 
@@ -9,7 +9,7 @@ Presenting your website or app designs to your client in a proper way is difficu
 * **v0.1** First release
 
 ### Compatibility
-* Tested successfully on Safari 11.1, Chrome 65.0.3325.181 and Firefox 59.0.2
+* Tested successfully on Safari 12, Chrome 69.0.3497.100 and Firefox 62.0.3
 
 ### For programmers and contributors
 * Feedback on browsers / versions tested would be greatly appreciated!
@@ -23,6 +23,7 @@ cleancss -o moockup.min.css moockup.css
 Moockup is released under the MIT License, meaning you can do with it whatever you want, even for commercial and obscure purposes. A credit somewhere would be appreciated, though!
 
 ### Additional credits
+The beautiful website https://stories.readymag.com/mollino/ by https://readymag.com has been used as an example mockup.
 iMac vector image based on the work by Vecteezy.com (https://vecteezy.com)
 iPhone X vector image based on the work by DesignBolts (http://www.designbolts.com/2017/09/13/free-vector-apple-iphone-x-mockup-in-ai-eps)
 

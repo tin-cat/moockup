@@ -347,10 +347,10 @@
 	}
 
 	$.Moockup.defaults = {
-		isFullScreen: true, // Set it to true to make Moockup take the entire screen.
-		setup: false, // If specific, this setup options will be used instead of reading the setup file.
-		setupFileName: 'setup.json', // The setup file name
-		gapPercentage: 5, // Percentage relative to screen's width to leave empty in between mockups on the same screen
+		isFullScreen: true, // If set to true, the Moockup will take the entire available screen. If left to false, the Moockup will take the size of the div it's been created.
+		setup: false, // If specified, this setup options will be used instead of reading the setup file. A JSON object must be passed, just like in the file setup.json.
+		setupFileName: 'setup.json', // The setup file name to read if no setup option is specified.
+		gapPercentage: 5, // The gap in between mockups on the same screen, expressed as a percentage relative to the screen's width.
 		types: {
 			'MacDesktop': {
 				'frameSrc': 'res/frames/imac.svg',
