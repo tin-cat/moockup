@@ -244,10 +244,8 @@
 			
 			var baseMockupWidth = screenWidth / numberOfMockups;
 
-			var mockupType, aspectRatio, width, marginTop, isLastMockupInScreen;
+			var mockupType, aspectRatio, width, marginTop;
 			$(mockups).each(function(mockupIdx, mockup) {
-				isLastMockupInScreen = mockupIdx >= numberOfMockups - 1;
-
 				mockupType = base.getType($(mockup).data('type'));
 				aspectRatio = mockupType.width / mockupType.height;
 
@@ -352,6 +350,7 @@
 		setupFileName: 'setup.json', // The setup file name to read if no setup option is specified.
 		resBaseDir: 'res/', // The base directory where Moockup's own resources are located. Change it if you're calling Moockup from a directory different than its own.
 		gapPercentage: 5, // The gap in between mockups on the same screen, expressed as a percentage relative to the screen's width.
+		isCacheJson: false, // Whether to cache the setup file ajax query or not.
 		types: {
 			'MacDesktop': {
 				'frameSrc': 'frames/imac.svg',
@@ -402,8 +401,7 @@
 					"bottom": 13.3
 				}
 			}
-		},
-		isCacheJson: false
+		}
 	};
 
 	$.fn.Moockup = function(options, params) {
