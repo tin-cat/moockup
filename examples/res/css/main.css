@@ -2,13 +2,17 @@ body {
 	margin: 0;
 	background-color: #fff;
 	font-family: Inconsolata, Monospace;
-	font-size: 13pt;
-	line-height: 1.4em;
+	font-size: 12pt;
+	line-height: 1.5em;
 	color: #555;
 }
 
 h1, h2, h3, h4 {
 	font-weight: normal;
+}
+
+h1 {
+	font-size: 18pt;
 }
 
 header {
@@ -31,14 +35,14 @@ header h1 {
 }
 
 header h2 {
-	font-size: 14pt;
+	font-size: 13pt;
 	line-height: 1em;
 	max-width: 550px;
 	margin: 10px;
 }
 
 header h3 {
-	font-size: 14pt;
+	font-size: 13pt;
 	line-height: 1.3em;
 	max-width: 550px;
 	margin: 10px;
@@ -180,11 +184,16 @@ code {
 	display: block;
 	background: #f4f4f4;
 	padding: 20pt;
-	font-family: 'Courier New';
+	font-family: 'Courier';
 	font-size: 10pt;
 	white-space: pre;
 	color: #000000;
 	overflow-x: auto;
+}
+
+code b {
+	font-weight: normal;
+	color: #f48;
 }
 
 code.isolated {
@@ -203,6 +212,13 @@ code .javascript {
 
 code .ellipsis {
 	color: rgba(0, 0, 0, 0.2);
+}
+
+.inlineCode {
+	font-family: 'Courier';
+	font-size: 10pt;
+	background: #f4f4f4;
+	outline: solid #f4f4f4 3px;
 }
 
 #exampleContent {

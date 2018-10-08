@@ -57,6 +57,16 @@ function formatHtml($code) {
 	$code = trim($code);
 	$code = str_replace("\t", "    ", $code);
 	$code = htmlspecialchars($code);
-	$code = str_replace("...", "<span class=\"ellipsis\">...</span>", $code);
+	$code = str_replace(
+		[
+			"...",
+			"[b]",
+			"[/b]"
+		],
+		[
+			"<span class=\"ellipsis\">...</span>",
+			"<b>",
+			"</b>"
+		], $code);
 	return $code;
 }
