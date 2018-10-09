@@ -138,6 +138,14 @@
 	padding-bottom: calc(3% + 3.5em);
 }
 
+.moockup > .screens > .screen.withTitles {
+	padding-bottom: calc(3% + 3.5em);
+}
+
+.moockup.withFooter > .screens > .screen.withTitles {
+	padding-bottom: calc(6% + 3.5em);
+}
+
 .moockup > .screens > .screen.lightBackground {
 	color: #000;
 }
@@ -177,8 +185,7 @@
 
 .moockup > .screens > .screen > .mockup > .title {
 	position: absolute;
-	top: calc(101%);
-	font-size: .8em;
+	top: calc(100% + 1em);
 	left: 0;
 	right: 0;
 	text-align: center;

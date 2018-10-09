@@ -215,6 +215,7 @@
 
 			if (mockup.title) {
 				$('<div></div>').addClass('title').appendTo(mockupElement).html(mockup.title);
+				$(screenElement).addClass('withTitles');
 			}
 
 			if (mockup.image) {
