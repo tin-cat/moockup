@@ -23,9 +23,9 @@ cleancss -o moockup.min.css moockup.css
 Moockup is released under the MIT License, meaning you can do with it whatever you want, even for commercial and obscure purposes. A credit somewhere would be appreciated, though!
 
 ### Additional credits
-The beautiful website https://stories.readymag.com/mollino/ by https://readymag.com has been used as an example mockup.
-iMac vector image based on the work by Vecteezy.com (https://vecteezy.com)
-iPhone X vector image based on the work by DesignBolts (http://www.designbolts.com/2017/09/13/free-vector-apple-iphone-x-mockup-in-ai-eps)
+* The beautiful website https://stories.readymag.com/mollino/ by https://readymag.com has been used as an example mockup.
+* iMac vector image based on the work by Vecteezy.com (https://vecteezy.com)
+* iPhone X vector image based on the work by DesignBolts (http://www.designbolts.com/2017/09/13/free-vector-apple-iphone-x-mockup-in-ai-eps)
 
 ### Please
 Please don't use Moockup if you're an animal abuser.
