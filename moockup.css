@@ -5,7 +5,7 @@
 
 .moockup {
 	position: relative;
-	font-family: 'Inconsolata', monospace;
+	font-family: 'Inconsolata', 'Courier', monospace;
 	font-size: 11pt;
 	background: #fff;
 	color: #000;
