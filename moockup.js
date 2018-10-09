@@ -180,7 +180,7 @@
 					.addClass('mockup')
 					.addClass(mockup.type)
 					.data('type', mockup.type)
-					.css('margin-right', o.gapPercentage + '%')
+					// .css('margin-right', o.gapPercentage + '%')
 					.appendTo(screenElement);
 			
 			var containerElement =
@@ -244,15 +244,15 @@
 			var screenWidth = $(screenElement).width();
 			var screenHeight = $(screenElement).height();
 			
-			var baseMockupWidth = screenWidth / numberOfMockups;
+			var baseMockupWidth = Math.floor(screenWidth / numberOfMockups); // We floor this to avoid possible problems with javascript roundings
 
-			var mockupType, aspectRatio, width, marginTop;
+			var mockupType, aspectRatio, width, marginTop, marginRight;
 			$(mockups).each(function(mockupIdx, mockup) {
 				mockupType = base.getType($(mockup).data('type'));
 				aspectRatio = mockupType.width / mockupType.height;
 
 				// Try to fit mockup by width
-				width = baseMockupWidth - (baseMockupWidth * (o.gapPercentage * 2) / 100);
+				width = baseMockupWidth;
 				height = base.getAspectRatioHeightForGivenWidth(aspectRatio, width);
 				if (height >= screenHeight) {
 					// If resulting size is higher than available height, fit it by height
@@ -260,13 +260,21 @@
 					width = base.getAspectRatioWidthForGivenHeight(aspectRatio, height);
 				}
 
-				// Center vertically by adding a margin-top
+				// Calculate margin right equivalent to o.gapPercentage
+				marginRight = (o.gapPercentage * screenWidth) / 100;
+
+				// Reduce the final width and height to account for the marginRight gap
+				width = width - marginRight;
+				height = base.getAspectRatioHeightForGivenWidth(aspectRatio, width);
+
+				// Calculate marginTop to center vertically
 				marginTop = (screenHeight / 2) - (height / 2);
-				
+
 				$(mockup)
 					.css('width', width)
 					.css('height', height)
 					.css('margin-top', marginTop)
+					.css('margin-right', marginRight)
 					.css('display', 'inline-block');
 			});
 		}
