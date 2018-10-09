@@ -363,8 +363,8 @@
 				'width': 4901,
 				'height': 3980.6,
 				'containerPosition': {
-					"left": 4.2,
-					"top": 4.2,
+					"left": 4,
+					"top": 4,
 					"right": 4.2,
 					"bottom": 34.5
 				}
