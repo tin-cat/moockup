@@ -5,7 +5,6 @@
     "screens": [
         {
             "title": "Mobile",
-            "backgroundColor": "#53B3CB",
             "mockups": [
                 {
                     "type": "iPhoneXPortrait",
