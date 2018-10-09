@@ -368,9 +368,9 @@
 				'width': 2328.8,
 				'height': 4651.9,
 				'containerPosition': {
-					"left": 6.4,
+					"left": 6.3,
 					"top": 2.9,
-					"right": 6.4,
+					"right": 6.3,
 					"bottom": 3
 				},
 				'notch': {
