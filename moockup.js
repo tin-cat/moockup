@@ -76,10 +76,11 @@
 						.appendTo(header)
 						.html(data.headerTitle);
 
-				headerMenu =
-					$('<div></div>')
-						.addClass('menu')
-						.appendTo(header);
+				if (data.screens.length)
+					headerMenu =
+						$('<div></div>')
+							.addClass('menu')
+							.appendTo(header);
 			}
 
 			if (data.footer) {
@@ -110,6 +111,8 @@
 		}
 
 		base.addHeaderMenuItem = function(id, title, onClick) {
+			if (!headerMenu)
+				return;
 			$('<div></div>')
 				.addClass('item')
 				.addClass('id' + id)
@@ -119,6 +122,8 @@
 		}
 
 		base.setHeaderMenuSelectedItem = function(id) {
+			if (!headerMenu)
+				return;
 			$('> .item', headerMenu).removeClass('selected');
 			$('> .item.id' + id, headerMenu).addClass('selected');
 		}
