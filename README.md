@@ -3,6 +3,8 @@ See documentation and working examples here http://moockup.tin.cat
 
 A web tool by Tin.cat to present drafts, designs or mockups to your client professionally while keeping control of the way it's presented, bringing back the "wow" effect your work deserves.
 
+[[https://raw.githubusercontent.com/tin-cat/moockup/master/res/moockup_screenshot.jpg|alt=Moockup screenshot]]
+
 Presenting your website or app designs to your client in a proper way is difficult: PDFs are too incontrollable, and simply sending PNG or JPG files doesn't really looks professional. Also, you're not in control of things like the default zoom level when your PDF is opened, the scroll position where it starts, the automatic resizing of the content to the client's screen ... All this makes you lose the initial "wow" effect and ultimately diminishes the value of your work. Moockup is a method to present your drafts, designs or mockups to your client in an elegant and professional way, making sure the client will see your work as you intended to.
 
 ### Version history
