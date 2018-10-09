@@ -296,7 +296,7 @@
 		base.showScreen = function(screenIdx, isAnimation) {
 			var screen = base.getScreen(screenIdx);
 			base.setLightOrDarkBackgroundClass(screen, base.el);
-			var screenTopPosition = base.getScreen(screenIdx).offset().top + $(screens).scrollTop();
+			var screenTopPosition = base.getScreen(screenIdx).position().top + $(screens).scrollTop();
 			$(screens)
 				.stop()
 				.animate(
@@ -345,7 +345,7 @@
 	}
 
 	$.Moockup.defaults = {
-		isFullScreen: true, // If set to true, the Moockup will take the entire available screen. If left to false, the Moockup will take the size of the div it's been created.
+		isFullScreen: false, // If set to true, the Moockup will take the entire available screen. If left to false, the Moockup will take the size of the div it's been created.
 		setup: false, // If specified, this setup options will be used instead of reading the setup file. A JSON object must be passed, just like in the file setup.json.
 		setupFileName: 'setup.json', // The setup file name to read if no setup option is specified.
 		resBaseDir: 'res/', // The base directory where Moockup's own resources are located. Change it if you're calling Moockup from a directory different than its own.
