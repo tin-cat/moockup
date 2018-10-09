@@ -76,7 +76,7 @@
 						.appendTo(header)
 						.html(data.headerTitle);
 
-				if (data.screens.length)
+				if (data.screens.length > 1)
 					headerMenu =
 						$('<div></div>')
 							.addClass('menu')
