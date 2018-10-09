@@ -1,5 +1,5 @@
 /*
-	 Moockup v0.1
+	 Moockup v0.1.1
 	 https://github.com/tin-cat/moockup
  */
 
@@ -7,9 +7,7 @@
 	position: relative;
 	font-family: 'Inconsolata', 'Courier', monospace;
 	font-size: 11pt;
-	background: #fff;
 	color: #000;
-	transition: color .5s;
 	width: 100%;
 	height: 100%;
 }
@@ -17,7 +15,6 @@
 .moockup a {
 	color: rgba(0, 0, 0, 0.5);
 	text-decoration: none;
-	transition: color .5s;
 }
 
 .moockup a:hover {
@@ -87,7 +84,6 @@
 .moockup > .header > .menu > .item.selected,
 .moockup > .header > .menu > .item:hover {
 	border-bottom: solid #fff 1px;
-	transition: border-color .5s;
 }
 
 .moockup.darkBackground > .header > .menu > .item.selected,
@@ -124,7 +120,6 @@
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
-	background: #fff;
 	color: #000;
 	text-align: center;
 	padding: 3%;

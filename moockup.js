@@ -1,5 +1,5 @@
 /*
-	 Moockup v0.1
+	 Moockup v0.1.1
 	 https://github.com/tin-cat/moockup
 	 A jQuery plugin by Tin.cat to present your drafts, designs or mockups to your client in a professional way while being in control of the way it's presented, and keeping the value and "wow" effect your work deserves.
  */
@@ -65,6 +65,10 @@
 			}
 
 			base.reset();
+			
+			if (data.backgroundColor) {
+				$(base.el).css('background-color', data.backgroundColor);
+			}
 
 			if (data.headerTitle || data.screens.length > 1) {
 				$(base.el).addClass('withHeader');
@@ -99,11 +103,6 @@
 
 			if (data.pageTitle)
 				document.title = data.pageTitle;
-
-			if (data.backgroundColor)
-				$(base.el).css('background-color', data.backgroundColor);
-			
-			base.setLightOrDarkBackgroundClass(base.el, base.el);
 
 			base.addScreens(data.screens);
 
@@ -146,12 +145,9 @@
 		base.addScreen = function(screenIdx, screen) {
 			var screenElement = $('<div></div>', {id: 'screen' + screenIdx}).addClass('screen').appendTo(screens);
 			
-			if (screen.backgroundColor) {
-				$(screenElement).css('background-color', screen.backgroundColor);
-				base.setLightOrDarkBackgroundClass(screenElement, screenElement);
-			}
-			else
-				base.setLightOrDarkBackgroundClass(base.el, screenElement);
+			$(screenElement).css('background-color', screen.backgroundColor ? screen.backgroundColor : $(base.el).css('background-color'));
+
+			base.setLightOrDarkBackgroundClass(screenElement, screenElement);
 			
 			if (!screen.mockups) {
 				base.error('No mockups on screen ' + (screenIdx + 1));
@@ -301,7 +297,7 @@
 
 		base.showScreen = function(screenIdx, isAnimation) {
 			var screen = base.getScreen(screenIdx);
-			base.setLightOrDarkBackgroundClass(screen, base.el);
+			
 			var screenTopPosition = base.getScreen(screenIdx).position().top + $(screens).scrollTop();
 			$(screens)
 				.stop()
@@ -310,10 +306,14 @@
 						scrollTop: screenTopPosition
 					},
 					isAnimation ? 500 : 0,
-					'swing'
+					'swing',
+					function() {
+						base.setLightOrDarkBackgroundClass(screen, base.el);
+					}
 				);
 			base.setHeaderMenuSelectedItem(screenIdx);
-			currentScreenIdx = screenIdx;
+			currentScreenIdx = screenIdx;	
+			
 		}
 
 		// Function by https://codepen.io/andreaswik
@@ -344,6 +344,10 @@
 
 		base.setLightOrDarkBackgroundClass = function(elementToTest, elementToSet) {
 			$(elementToSet).removeClass('lightBackground').removeClass('darkBackground');
+
+			if ($(elementToTest).css('background-color') == 'rgba(0, 0, 0, 0)') // Weird way of cheching when no background-color is set
+				return;
+
 			$(elementToSet).addClass(base.isLightBackgroundColor(elementToTest) ? 'lightBackground' : 'darkBackground');
 		}
 

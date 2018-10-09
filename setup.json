@@ -4,6 +4,36 @@
     "footer": "Read the <a href=\"https://moockup.tin.cat\" target=\"external\">documentation</a> to customize this <b>Moockup</b>",
     "screens": [
         {
+            "title": "Mobile",
+            "backgroundColor": "#53B3CB",
+            "mockups": [
+                {
+                    "type": "iPhoneXPortrait",
+                    "image": "images/home_mobile.jpg",
+                    "notchBackgroundColor": "#fff",
+                    "title": "Home"
+                },
+                {
+                    "type": "iPhoneXPortrait",
+                    "image": "images/subsection_mobile.jpg",
+                    "notchBackgroundColor": "#fff",
+                    "title": "Sub section"
+                },
+                {
+                    "type": "iPhoneXPortrait",
+                    "image": "images/another_section_mobile.jpg",
+                    "notchBackgroundColor": "#333333",
+                    "title": "Another section"
+                },
+                {
+                    "type": "iPhoneXPortrait",
+                    "image": "images/another_section_mobile.jpg",
+                    "notchBackgroundColor": "#333333",
+                    "title": "Another section"
+                }
+            ]
+        },
+        {
             "title": "Home",
             "backgroundColor": "#fb0",
             "mockups": [

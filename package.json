@@ -1,0 +1,28 @@
+{
+  "name": "moockup",
+  "version": "0.1.1",
+  "description": "A web tool and jQuery plugin by Tin.cat to present drafts, designs or mockups to your client professionally while keeping control of the way it's presented, bringing back the 'wow' effect your work deserves.",
+  "main": "moockup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tin-cat/moockup.git"
+  },
+  "keywords": [
+    "moockup",
+    "ecosystem:jquery",
+    "mockup",
+    "presentation",
+    "draft",
+    "wireframe",
+    "presenter"
+  ],
+  "author": "Tin.cat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tin-cat/moockup/issues"
+  },
+  "homepage": "https://moockup.tin.cat"
+}
